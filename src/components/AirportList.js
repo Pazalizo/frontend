@@ -1,7 +1,8 @@
 import React from 'react';
 
-const AirportList = ({ airports, onDelete, onEdit }) => {
-  if (airports.length === 0) {
+const AirportList = ({ airports, onDelete }) => {
+  // Verifica que airports sea un array válido antes de verificar si está vacío
+  if (!Array.isArray(airports) || airports.length === 0) {
     return <p>No hay aeropuertos disponibles.</p>;
   }
 
@@ -13,7 +14,6 @@ const AirportList = ({ airports, onDelete, onEdit }) => {
           <li key={airport.id}>
             {airport.name} ({airport.codeIATA}) - {airport.city}
             <button onClick={() => onDelete(airport.id)}>Eliminar</button>
-            <button onClick={() => onEdit(airport)}>Editar</button>
           </li>
         ))}
       </ul>

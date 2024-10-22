@@ -9,7 +9,7 @@ export const useAirports = () => {
   useEffect(() => {
     getAirports()
       .then(response => {
-        console.log(response.data); // Verifica que los datos se están recibiendo correctamente
+        console.log(response.data); // Verifica si los datos están llegando correctamente
         setAirports(response.data);
         setLoading(false);
       })
